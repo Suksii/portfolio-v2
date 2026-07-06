@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# portfolio-v2
 
-## Getting Started
+A rewrite of my portfolio with a heavy focus on design and motion — the
+"playful & creative" direction. Built with the latest Next.js, TypeScript,
+Tailwind CSS v4 and Motion.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + **React 19**
+- **TypeScript**
+- **Tailwind CSS v4** (CSS-first config in `globals.css`)
+- **Motion** (`motion/react`) for all animation
+- **next-themes** — dark default + light/dark toggle
+- **@emailjs/browser** — client-side contact form (lazy-loaded)
+- **sonner** — toasts
+- **react-icons**
+
+## Features
+
+- Custom cursor (dot + trailing ring that grows over interactive elements)
+- Animated aurora-blob background over a dotted grid, theme-aware
+- Magnetic buttons, 3D tilt project cards with cursor glare
+- Scroll-reveal + staggered entrance animations, scroll-spy nav
+- Rotating role text, dual skill marquees, animated section headings
+- Fully responsive, respects `prefers-reduced-motion`
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run start    # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All portfolio content (profile, socials, story, skills, projects, EmailJS
+config) lives in a single file: [`src/lib/data.ts`](src/lib/data.ts).
+Images are in `public/` (`projects/`, `skills/`, `assets/`) and the CV at
+`public/CV.pdf`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+```
+src/
+  app/
+    layout.tsx        fonts, metadata, ThemeProvider
+    page.tsx          composes all sections
+    globals.css       Tailwind v4 theme, palette, utilities, keyframes
+  components/
+    background.tsx    aurora blobs + dotted grid
+    cursor.tsx        custom cursor
+    theme-provider.tsx / theme-toggle.tsx
+    ui/               reveal, magnetic, tilt-card, marquee,
+                      section-heading, social-icon
+    sections/         navbar, hero, about, skills, projects,
+                      contact (+ contact-form), footer
+  lib/data.ts         all content
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Deploy-agnostic: the contact form is client-side (EmailJS), so it works on
+  Vercel or a static host. For a static export, add `output: "export"` to
+  `next.config.ts` and swap `next/image` usage to unoptimized if needed.
+- On Node 25, `@emailjs/browser` is imported lazily inside the submit handler
+  because it touches `localStorage` at import time, which throws during server
+  prerender.

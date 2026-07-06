@@ -1,26 +1,145 @@
 @import "tailwindcss";
 
+/* next-themes toggles the `.dark` class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* surfaces (light theme) */
+  --background: #f4f1ea;
+  --background-2: #ece7dc;
+  --foreground: #17151f;
+  --muted: #5f5a6b;
+  --card: #ffffff;
+  --card-border: rgba(20, 16, 40, 0.1);
+  --grid-line: rgba(20, 16, 40, 0.06);
+
+  /* playful accents (shared, tuned per theme) */
+  --violet: #6d4bff;
+  --pink: #ff3ea5;
+  --lime: #7fb800;
+  --cyan: #12a5c8;
+  --orange: #ff6a00;
+  --yellow: #f5b800;
+}
+
+.dark {
+  --background: #08070d;
+  --background-2: #100e1c;
+  --foreground: #f3f1ff;
+  --muted: #a29fb8;
+  --card: rgba(255, 255, 255, 0.028);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --grid-line: rgba(255, 255, 255, 0.045);
+
+  --violet: #8b6bff;
+  --pink: #ff5cb8;
+  --lime: #c2f24a;
+  --cyan: #3ee0ff;
+  --orange: #ff9542;
+  --yellow: #ffdd57;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-2: var(--background-2);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+
+  --color-violet: var(--violet);
+  --color-pink: var(--pink);
+  --color-lime: var(--lime);
+  --color-cyan: var(--cyan);
+  --color-orange: var(--orange);
+  --color-yellow: var(--yellow);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-hand: var(--font-hand);
+
+  --animate-marquee: marquee 34s linear infinite;
+  --animate-marquee-rev: marquee-rev 34s linear infinite;
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-spin-slow: spin 20s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-24px) translateX(14px); }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* hide native cursor on desktop where we render a custom one */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active,
+  .custom-cursor-active a,
+  .custom-cursor-active button {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: var(--violet);
+  color: #fff;
+}
+
+/* ---------- utilities ---------- */
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--violet), var(--pink) 45%, var(--orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* dotted-grid background helper */
+@utility bg-dotgrid {
+  background-image: radial-gradient(var(--grid-line) 1.4px, transparent 1.4px);
+  background-size: 26px 26px;
+}
+
+/* frosted card */
+@utility card-surface {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+}
+
+/* thin scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
