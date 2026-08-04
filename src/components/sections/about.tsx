@@ -5,18 +5,24 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal, RevealGroup } from "@/components/ui/reveal";
 import { facts, profile, story } from "@/lib/data";
 
-const yearsCoding = new Date().getFullYear() - 2020;
+const yearsCoding = new Date().getFullYear() - 2023;
 
 const stats = [
   { value: `${yearsCoding}+`, label: "Years building for the web" },
   { value: "20+", label: "Projects shipped" },
-  { value: "10+", label: "Technologies in daily use" },
 ];
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 sm:px-8 md:py-32">
-      <SectionHeading index="01" kicker="a little about me" title="Nice to meet you" />
+    <section
+      id="about"
+      className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 sm:px-8 md:py-32"
+    >
+      <SectionHeading
+        index="01"
+        kicker="a little about me"
+        title="Nice to meet you"
+      />
 
       <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
         <div>
@@ -34,7 +40,7 @@ export function About() {
             ))}
           </RevealGroup>
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
+          <div className="mt-10 grid grid-cols-2 gap-4">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -62,9 +68,14 @@ export function About() {
             <p className="font-hand text-2xl text-violet">the essentials</p>
             <ul className="mt-5 divide-y divide-card-border">
               {facts.map((f) => (
-                <li key={f.label} className="flex items-start justify-between gap-4 py-3.5">
+                <li
+                  key={f.label}
+                  className="flex items-start justify-between gap-4 py-3.5"
+                >
                   <span className="text-sm text-muted">{f.label}</span>
-                  <span className="text-right text-sm font-medium">{f.value}</span>
+                  <span className="text-right text-sm font-medium">
+                    {f.value}
+                  </span>
                 </li>
               ))}
             </ul>

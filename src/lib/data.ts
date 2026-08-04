@@ -78,7 +78,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Ksport",
-    year: "2024",
+    year: "2026",
     tags: ["Next.js", "TypeScript", "TailwindCSS", "REST API"],
     description:
       "A modern, headless e-commerce storefront for a sportswear retailer, built on Next.js + TypeScript over a Laravel REST API. Full catalog with categories, brands and advanced search, cart & checkout with online payment, wishlist, user accounts with order history and a store locator — SSR for performance/SEO and TanStack Query for data fetching.",
@@ -88,7 +88,7 @@ export const projects: Project[] = [
   },
   {
     title: "BusTicket",
-    year: "2024",
+    year: "2025",
     tags: ["Next.js", "TypeScript", "i18n", "AI Chatbot"],
     description:
       "An online bus-ticket booking platform in 15 languages via next-intl. Search routes, pick seats, pay online or offline, manage ticket history, verify return tickets and even rent a bus. Includes blogs, FAQ and an integrated AI chatbot, with Google OAuth, reCAPTCHA and payment integrations.",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
   },
   {
     title: "LevelUp",
-    year: "2023",
+    year: "2025",
     tags: ["PHP", "JavaScript", "SASS", "E-commerce"],
     description:
       "An e-commerce storefront on a custom PHP platform: full catalog with categories & brands, cart & checkout, wishlist, blog, multi-language, plus shipping, email and payment integrations. I built and maintained the store, including a full responsive UI redesign.",
@@ -108,7 +108,7 @@ export const projects: Project[] = [
   },
   {
     title: "TimePlus",
-    year: "2023",
+    year: "2025",
     tags: ["PHP", "JavaScript", "SASS", "E-commerce"],
     description:
       "An online store for watches and jewelry on a custom PHP e-commerce platform — full catalog, cart & checkout, wishlist, blog, multi-language and shipping/email/payment integrations. I handled development and maintenance, including a complete responsive UI redesign.",
@@ -116,8 +116,18 @@ export const projects: Project[] = [
     image: "/projects/timeplus.webp",
   },
   {
+    title: "Kata Agency",
+    year: "2025",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "Custom CMS", "i18n"],
+    description:
+      "A bilingual site for an architecture and design studio, built solo end to end. Beyond the public site — projects, services, news and contact — I built the admin panel behind it: JWT auth with password reset, a TipTap rich-text editor, and full CRUD over projects, services, news and categories, so the studio publishes without touching code. Next.js 15 App Router with Prisma over PostgreSQL, next-intl for EN/ME.",
+    url: "https://kataagency.com",
+    github: "https://github.com/Suksii/katadesign-next",
+    image: "/projects/katadesign.webp",
+  },
+  {
     title: "Food Ordering",
-    year: "2023",
+    year: "2024",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
     description:
       "A full-stack Next.js + TypeScript app for ordering food and drinks. PostgreSQL as the database with Prisma as the ORM, authentication via NextAuth (Google/Facebook). Users browse the menu, view featured products, use the cart and order; admins additionally manage products and update order statuses.",
@@ -126,7 +136,7 @@ export const projects: Project[] = [
   },
   {
     title: "Rent a Car",
-    year: "2023",
+    year: "2024",
     tags: ["React", "Node.js", "Express", "MongoDB"],
     description:
       "A full-stack car-rental application. React front-end with a Node.js, Express and MongoDB back-end. Features user authentication, car rental and profile management, plus an admin car-management system for adding, updating and deleting cars.",
@@ -135,7 +145,7 @@ export const projects: Project[] = [
   },
   {
     title: "Chat App",
-    year: "2022",
+    year: "2024",
     tags: ["React", "Node.js", "Socket.io", "MongoDB"],
     description:
       "A full-stack real-time chat application. React front-end with a Node.js, Express, Socket.io and MongoDB back-end. Features user authentication and real-time messaging.",
