@@ -21,22 +21,35 @@ export function Navbar() {
   const [active, setActive] = useState("");
   const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 40));
+  /**
+   * The section under an imaginary line just above the middle of the screen.
+   * Deterministic on purpose: when two sections meet, exactly one contains the
+   * line, so there is no tie for the pill to land on the wrong side of.
+   */
+  function syncActive() {
+    const line = window.scrollY + window.innerHeight * 0.475;
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      if (line >= top && line < top + el.offsetHeight) {
+        setActive(id);
+        return;
+      }
+    }
+    setActive("");
+  }
+
+  useMotionValueEvent(scrollY, "change", (v) => {
+    setScrolled(v > 40);
+    syncActive();
+  });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
+    syncActive();
+    window.addEventListener("resize", syncActive);
+    return () => window.removeEventListener("resize", syncActive);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
