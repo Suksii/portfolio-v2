@@ -10,6 +10,7 @@ const yearsCoding = new Date().getFullYear() - 2023;
 const stats = [
   { value: `${yearsCoding}+`, label: "Years building for the web" },
   { value: "20+", label: "Projects shipped" },
+  { value: "30+", label: "E-commerce sites maintained" },
 ];
 
 export function About() {
@@ -40,7 +41,7 @@ export function About() {
             ))}
           </RevealGroup>
 
-          <div className="mt-10 grid grid-cols-2 gap-4">
+          <div className="mt-10 grid grid-cols-3 gap-4">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}

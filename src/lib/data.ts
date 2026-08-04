@@ -29,7 +29,7 @@ export type Social = (typeof socials)[number];
 
 export const story: string[] = [
   "Hello, my name is Šućo. I graduated from the Faculty of Electrical Engineering in Podgorica, University of Montenegro — but even before that I was hooked on programming. It all started with C in my second year, and I went a little crazy solving logic problems in it.",
-  "After graduation I dove into web development and fell in love. I'm a self-taught developer, constantly learning. Today I work full-time as a Web Developer at Data Design, building and maintaining production apps — from e-commerce storefronts to a large multi-module ERP — with React, Next.js, TypeScript, Node.js and PHP/Laravel.",
+  "After graduation I dove into web development and fell in love. I'm a self-taught developer, constantly learning. Today I work full-time as a Web Developer at Data Design, and I work across the stack — React, Next.js and TypeScript on the front, PHP/Laravel behind it. I help build the shared e-commerce API every one of our stores runs on, keep more than 30 storefronts alive in production, and work on a large multi-module ERP.",
   "Before that I spent years as an engineer at the national broadcaster RTCG, where I started building internal web apps. I'm responsible, curious, and always trying to do my best work on every project.",
 ];
 
@@ -67,11 +67,14 @@ export const otherSkills = ["C", "C++", "MATLAB", "Linux", "Arduino"];
 export type Project = {
   title: string;
   year?: string;
+  /** What I actually did on it — the part a feature list can't say. */
+  role?: string;
   tags: string[];
   description: string;
   url?: string;
   github?: string;
   image: string;
+  /** Shown as a full-width row; everything else lives behind "more work". */
   featured?: boolean;
 };
 
@@ -79,6 +82,7 @@ export const projects: Project[] = [
   {
     title: "Ksport",
     year: "2026",
+    role: "Solo front-end · back-end contributor",
     tags: ["Next.js", "TypeScript", "TailwindCSS", "REST API"],
     description:
       "A modern, headless e-commerce storefront for a sportswear retailer, built on Next.js + TypeScript over a Laravel REST API. Full catalog with categories, brands and advanced search, cart & checkout with online payment, wishlist, user accounts with order history and a store locator — SSR for performance/SEO and TanStack Query for data fetching.",
@@ -89,6 +93,7 @@ export const projects: Project[] = [
   {
     title: "BusTicket",
     year: "2025",
+    role: "Solo front-end · back-end contributor",
     tags: ["Next.js", "TypeScript", "i18n", "AI Chatbot"],
     description:
       "An online bus-ticket booking platform in 15 languages via next-intl. Search routes, pick seats, pay online or offline, manage ticket history, verify return tickets and even rent a bus. Includes blogs, FAQ and an integrated AI chatbot, with Google OAuth, reCAPTCHA and payment integrations.",
@@ -97,8 +102,21 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: "Kata Agency",
+    year: "2025",
+    role: "Solo — front end, back end and admin panel",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "Custom CMS", "i18n"],
+    description:
+      "A bilingual site for an architecture and design studio, built solo end to end. Beyond the public site — projects, services, news and contact — I built the admin panel behind it: JWT auth with password reset, a TipTap rich-text editor, and full CRUD over projects, services, news and categories, so the studio publishes without touching code. Next.js 15 App Router with Prisma over PostgreSQL, next-intl for EN/ME.",
+    url: "https://kataagency.com",
+    github: "https://github.com/Suksii/katadesign-next",
+    image: "/projects/katadesign.webp",
+    featured: true,
+  },
+  {
     title: "LevelUp",
     year: "2025",
+    role: "Solo front-end · back-end contributor",
     tags: ["PHP", "JavaScript", "SASS", "E-commerce"],
     description:
       "An e-commerce storefront on a custom PHP platform: full catalog with categories & brands, cart & checkout, wishlist, blog, multi-language, plus shipping, email and payment integrations. I built and maintained the store, including a full responsive UI redesign.",
@@ -109,21 +127,13 @@ export const projects: Project[] = [
   {
     title: "TimePlus",
     year: "2025",
+    role: "Solo front-end · back-end contributor",
     tags: ["PHP", "JavaScript", "SASS", "E-commerce"],
     description:
       "An online store for watches and jewelry on a custom PHP e-commerce platform — full catalog, cart & checkout, wishlist, blog, multi-language and shipping/email/payment integrations. I handled development and maintenance, including a complete responsive UI redesign.",
     url: "https://timeplus.me",
     image: "/projects/timeplus.webp",
-  },
-  {
-    title: "Kata Agency",
-    year: "2025",
-    tags: ["Next.js", "Prisma", "PostgreSQL", "Custom CMS", "i18n"],
-    description:
-      "A bilingual site for an architecture and design studio, built solo end to end. Beyond the public site — projects, services, news and contact — I built the admin panel behind it: JWT auth with password reset, a TipTap rich-text editor, and full CRUD over projects, services, news and categories, so the studio publishes without touching code. Next.js 15 App Router with Prisma over PostgreSQL, next-intl for EN/ME.",
-    url: "https://kataagency.com",
-    github: "https://github.com/Suksii/katadesign-next",
-    image: "/projects/katadesign.webp",
+    featured: true,
   },
   {
     title: "Food Ordering",
@@ -153,6 +163,10 @@ export const projects: Project[] = [
     image: "/projects/chat-app.webp",
   },
 ];
+
+/** Shown under the projects grid — real work that can't be linked publicly. */
+export const privateWork =
+  "Alongside these, I built internal web tools at RTCG, Montenegro's national broadcaster — scheduling and calendar apps used day to day by staff. That work lives on internal systems, so there's nothing to link here.";
 
 // EmailJS — client-side, safe to expose (public key)
 export const emailjsConfig = {
