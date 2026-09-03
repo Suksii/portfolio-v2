@@ -5,7 +5,7 @@ export const profile = {
   roles: ["Full Stack Developer", "Electrical Engineer"],
   tagline: "I build fast, thoughtful web experiences — from headless storefronts to full ERP systems.",
   location: "Podgorica, Montenegro",
-  email: "ramovic225@gmail.com",
+  email: "sucoramovic96@gmail.com",
   phone: "+382 69 741 999",
   birthday: "1996-07-27",
   education: "Faculty of Electrical Engineering, University of Montenegro",
