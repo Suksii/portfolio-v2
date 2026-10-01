@@ -80,6 +80,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Lubenica",
+    year: "2026",
+    role: "Front-end · back-end contributor",
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "TanStack Query", "E-commerce"],
+    description:
+      "An online furniture and home store for a retailer with six shops in Montenegro, built on Next.js App Router with TypeScript over a Laravel REST API. Catalog by category and brand, advanced search, sale campaigns, cart and checkout with online payment, wishlist, user accounts, blog and store pages — with server rendering and caching for catalogue performance, TanStack Query for data, and React Hook Form with Zod across the checkout flow.",
+    url: "https://lubenicashop.me",
+    image: "/projects/lubenica.jpg",
+    featured: true,
+  },
+  {
+    title: "Cvjećara Habitat",
+    year: "2026",
+    role: "Front-end · back-end contributor",
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "i18n", "Vitest", "E-commerce"],
+    description:
+      "A bilingual online flower and gift shop built on Next.js App Router, with locale-prefixed routing for ME and EN, generated sitemap and robots, Open Graph images and a CMS-driven page builder. Catalog with category and price browsing, wedding and event section, wishlist, cart and a multi-step checkout with delivery scheduling, plus a newsletter integration. Covered by a Vitest suite over checkout schemas, routing boundaries, rate limiting and media handling.",
+    url: "https://cvjecarahabitat.me",
+    image: "/projects/habitat.jpg",
+    featured: true,
+  },
+  {
     title: "Ksport",
     year: "2026",
     role: "Solo front-end · back-end contributor",
