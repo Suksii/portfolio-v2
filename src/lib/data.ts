@@ -196,3 +196,89 @@ export const emailjsConfig = {
   templateId: "template_c3wcmqd",
   publicKey: "5mY7gK77PcQJ7OMZO",
 };
+
+/** Canonical site URL — used by metadata, sitemap and robots. */
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-v2-eight-mocha-15.vercel.app";
+
+export type Experience = {
+  period: string;
+  title: string;
+  org: string;
+  url?: string;
+  summary: string;
+  tags?: string[];
+  current?: boolean;
+};
+
+export const experience: Experience[] = [
+  {
+    period: "Jun 2025 — now",
+    title: "Web Developer",
+    org: "Data Design",
+    url: "https://datadesign.me",
+    current: true,
+    summary:
+      "Full-time on production e-commerce and business systems: headless Next.js storefronts, the shared Laravel API behind 30+ stores, and a large multi-module ERP.",
+    tags: ["Next.js", "TypeScript", "Laravel", "PHP", "TanStack"],
+  },
+  {
+    period: "Nov 2023 — Jun 2025",
+    title: "Web Developer",
+    org: "Freelance",
+    summary:
+      "Designed and built responsive sites and web apps for government and private organizations — from UI implementation to deployment.",
+    tags: ["React", "Vue.js", "Next.js", "Node.js"],
+  },
+  {
+    period: "Aug 2022 — Jul 2026",
+    title: "Software Engineer",
+    org: "RTCG — national broadcaster",
+    url: "https://rtcg.me",
+    summary:
+      "Kept broadcast production systems (Avid MediaCentral, iNEWS, Airspeed) on air, and built internal web apps — scheduling and calendar tools used daily by staff.",
+    tags: ["React", "Node.js", "Vue.js"],
+  },
+  {
+    period: "Sep 2021 — Jan 2022",
+    title: "Electrical Engineer",
+    org: "Ramel",
+    summary:
+      "Designed high-voltage installations and worked on the first section of the Montenegro highway project.",
+  },
+  {
+    period: "2015 — 2020",
+    title: "BSc Electrical Engineering",
+    org: "University of Montenegro",
+    summary:
+      "Faculty of Electrical Engineering, Podgorica. Where C and logic problems got me hooked on programming.",
+  },
+];
+
+/** The day-job work that doesn't fit a single project card. */
+export const dayJob = {
+  kicker: "behind the storefronts",
+  title: "The platform work at Data Design",
+  paragraphs: [
+    "Most of the stores above run on one shared e-commerce platform. I work on the Laravel REST API that powers them — new endpoints, bug fixes and performance work — and keep more than 30 storefronts healthy in production.",
+    "In parallel I develop TiramisuERP, a multi-module ERP used by companies across the region: sales, finance, warehouse, e-commerce, gastro/POS, personnel and mobile sales, with i18n, Sentry monitoring and realtime updates.",
+  ],
+  metrics: [
+    { value: "30+", label: "storefronts in production" },
+    { value: "1", label: "shared API behind them" },
+    { value: "7", label: "ERP modules I work across" },
+  ],
+  tags: [
+    "React",
+    "TypeScript",
+    "TanStack Router & Query",
+    "Zustand",
+    "AG-Grid",
+    "Laravel",
+    "PostgreSQL",
+  ],
+  links: [
+    { label: "TiramisuERP", url: "https://tiramisuerp.com" },
+    { label: "Data Design", url: "https://datadesign.me" },
+  ],
+} as const;

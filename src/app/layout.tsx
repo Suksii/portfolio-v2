@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { profile } from "@/lib/data";
+import { profile, siteUrl } from "@/lib/data";
 
 const display = Space_Grotesk({
   variable: "--font-display",
@@ -21,8 +21,12 @@ const hand = Caveat({
   weight: ["500", "700"],
 });
 
+const title = `${profile.name} — ${profile.roles[0]}`;
+
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.roles[0]}`,
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: "/" },
+  title,
   description: profile.tagline,
   keywords: [
     "Šućo Ramović",
@@ -35,10 +39,19 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: profile.name }],
   openGraph: {
-    title: `${profile.name} — ${profile.roles[0]}`,
+    title,
     description: profile.tagline,
     type: "website",
+    url: "/",
+    siteName: profile.name,
+    locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description: profile.tagline,
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

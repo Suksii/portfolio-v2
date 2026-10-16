@@ -7,6 +7,7 @@ import { FiGithub, FiLock } from "react-icons/fi";
 import { RxArrowTopRight, RxChevronDown } from "react-icons/rx";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TiltCard } from "@/components/ui/tilt-card";
+import { DayJob } from "@/components/sections/day-job";
 import { privateWork, projects, type Project } from "@/lib/data";
 
 const featured = projects.filter((p) => p.featured);
@@ -180,11 +181,15 @@ export function Projects() {
 
   return (
     <section id="work" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 sm:px-8 md:py-32">
-      <SectionHeading index="03" kicker="selected work" title="Things I've built" />
+      <SectionHeading index="04" kicker="selected work" title="Things I've built" />
       <div className="flex flex-col gap-24 md:gap-32">
         {featured.map((p, i) => (
           <ProjectRow key={p.title} project={p} index={i} />
         ))}
+      </div>
+
+      <div className="mt-24 md:mt-32">
+        <DayJob />
       </div>
 
       {rest.length > 0 && (

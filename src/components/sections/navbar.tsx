@@ -9,11 +9,12 @@ import { profile } from "@/lib/data";
 
 const links = [
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ];
-const sectionIds = ["about", "skills", "work", "contact"];
+const sectionIds = ["about", "experience", "skills", "work", "contact"];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);

@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
-import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import { FiPhone, FiMail, FiMapPin, FiCopy, FiCheck } from "react-icons/fi";
+import { toast } from "sonner";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { SocialIcon } from "@/components/ui/social-icon";
@@ -14,10 +16,34 @@ const details = [
   { icon: FiMapPin, label: "Location", value: profile.location },
 ];
 
+function CopyEmail() {
+  const [copied, setCopied] = useState(false);
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      toast.success("Email copied");
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      toast.error("Couldn't copy — just select it");
+    }
+  }
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      aria-label="Copy email address"
+      className="ml-auto grid h-9 w-9 shrink-0 place-items-center rounded-full border border-card-border bg-card text-muted transition-colors hover:border-violet hover:text-foreground"
+    >
+      {copied ? <FiCheck className="h-4 w-4 text-lime" /> : <FiCopy className="h-4 w-4" />}
+    </button>
+  );
+}
+
 export function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 sm:px-8 md:py-32">
-      <SectionHeading index="04" kicker="say hello" title="Let's build something" />
+      <SectionHeading index="05" kicker="say hello" title="Let's build something" />
 
       <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
         {/* left — info */}
@@ -55,9 +81,12 @@ export function Contact() {
                     transition={{ delay: i * 0.08 }}
                   >
                     {d.href ? (
-                      <a href={d.href} className="flex items-center gap-4 transition-opacity hover:opacity-80">
-                        {Inner}
-                      </a>
+                      <div className="flex items-center gap-4">
+                        <a href={d.href} className="flex items-center gap-4 transition-opacity hover:opacity-80">
+                          {Inner}
+                        </a>
+                        {d.label === "Email" && <CopyEmail />}
+                      </div>
                     ) : (
                       <div className="flex items-center gap-4">{Inner}</div>
                     )}

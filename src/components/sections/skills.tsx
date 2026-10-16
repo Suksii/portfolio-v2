@@ -31,7 +31,7 @@ export function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading index="02" kicker="my toolbox" title="Skills & tech" />
+        <SectionHeading index="03" kicker="my toolbox" title="Skills & tech" />
       </div>
 
       <div className="flex flex-col gap-5">
