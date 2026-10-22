@@ -80,6 +80,17 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Tehnoplus",
+    year: "2026",
+    role: "Front-end · back-end contributor",
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "TanStack Query", "B2B", "E-commerce"],
+    description:
+      "An online store for one of Montenegro's largest consumer electronics and home appliance retailers, built on Next.js App Router with TypeScript over a Laravel REST API. Catalog by category and brand with sale campaigns and daily deals, search, product comparison, wishlist, cart and checkout with online payment, user accounts with orders and addresses, blog, store pages and job applications — plus a separate B2B wholesale mode with customer-specific pricing, its own home page and Excel catalog export. Uses Cache Components with a custom disk cache handler for catalogue performance, Sentry monitoring, generated sitemap, robots and Open Graph images, and a Vitest suite over the proxy, checkout and pricing logic.",
+    url: "https://tehnoplus.me",
+    image: "/projects/tehnoplus.webp",
+    featured: true,
+  },
+  {
     title: "Lubenica",
     year: "2026",
     role: "Front-end · back-end contributor",
