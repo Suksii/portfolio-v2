@@ -62,10 +62,11 @@ export function Navbar() {
         className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4"
       >
         <nav
-          className={`flex w-full max-w-4xl items-center justify-between rounded-full px-3 py-2 transition-all duration-500 ${
+          className={`flex w-full items-center justify-between rounded-full py-2 transition-all duration-500 ${
             scrolled
-              ? "card-surface shadow-lg shadow-black/5"
-              : "border border-transparent"
+              ? "card-surface max-w-4xl px-3 shadow-lg shadow-black/5"
+              : // at the top: as wide as the page content, logo aligned with the hero text
+                "max-w-6xl border border-transparent px-0 sm:px-2 xl:px-6"
           }`}
         >
           <a
@@ -102,7 +103,7 @@ export function Navbar() {
             })}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 pr-2">
             <ThemeToggle />
             <button
               className="grid h-10 w-10 place-items-center rounded-full border border-card-border bg-card md:hidden"
