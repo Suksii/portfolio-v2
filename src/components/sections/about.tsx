@@ -10,7 +10,7 @@ const yearsCoding = new Date().getFullYear() - 2023;
 const stats = [
   { value: `${yearsCoding}+`, label: "Years building for the web" },
   { value: "20+", label: "Projects shipped" },
-  { value: "30+", label: "E-commerce sites maintained" },
+  { value: "50+", label: "Projects maintained" },
 ];
 
 export function About() {

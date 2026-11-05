@@ -29,7 +29,7 @@ export type Social = (typeof socials)[number];
 
 export const story: string[] = [
   "Hello, my name is Šućo. I graduated from the Faculty of Electrical Engineering in Podgorica, University of Montenegro — but even before that I was hooked on programming. It all started with C in my second year, and I went a little crazy solving logic problems in it.",
-  "After graduation I dove into web development and fell in love. I'm a self-taught developer, constantly learning. Today I work full-time as a Web Developer at Data Design, and I work across the stack — React, Next.js and TypeScript on the front, PHP/Laravel behind it. I help build the shared e-commerce API every one of our stores runs on, keep more than 30 storefronts alive in production, and work on a large multi-module ERP.",
+  "After graduation I dove into web development and fell in love. I'm a self-taught developer, constantly learning. Today I work full-time as a Web Developer at Data Design, and I work across the stack — React, Next.js and TypeScript on the front, PHP/Laravel behind it. I help build the shared e-commerce API every one of our stores runs on, keep more than 50 projects alive in production, and work on a large multi-module ERP.",
   "Before that I spent years as an engineer at the national broadcaster RTCG, where I started building internal web apps. I'm responsible, curious, and always trying to do my best work on every project.",
 ];
 
@@ -210,7 +210,7 @@ export const emailjsConfig = {
 
 /** Canonical site URL — used by metadata, sitemap and robots. */
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-v2-eight-mocha-15.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://sucoramovic.vercel.app";
 
 export type Experience = {
   period: string;
@@ -230,7 +230,7 @@ export const experience: Experience[] = [
     url: "https://datadesign.me",
     current: true,
     summary:
-      "Full-time on production e-commerce and business systems: headless Next.js storefronts, the shared Laravel API behind 30+ stores, and a large multi-module ERP.",
+      "Full-time on production e-commerce and business systems — 50+ projects in production: headless Next.js storefronts, the shared Laravel API behind them, and a large multi-module ERP.",
     tags: ["Next.js", "TypeScript", "Laravel", "PHP", "TanStack"],
   },
   {
@@ -271,11 +271,11 @@ export const dayJob = {
   kicker: "behind the storefronts",
   title: "The platform work at Data Design",
   paragraphs: [
-    "Most of the stores above run on one shared e-commerce platform. I work on the Laravel REST API that powers them — new endpoints, bug fixes and performance work — and keep more than 30 storefronts healthy in production.",
+    "Most of the stores above run on one shared e-commerce platform. I work on the Laravel REST API that powers them — new endpoints, bug fixes and performance work — and keep more than 50 projects healthy in production.",
     "In parallel I develop TiramisuERP, a multi-module ERP used by companies across the region: sales, finance, warehouse, e-commerce, gastro/POS, personnel and mobile sales, with i18n, Sentry monitoring and realtime updates.",
   ],
   metrics: [
-    { value: "30+", label: "storefronts in production" },
+    { value: "50+", label: "projects in production" },
     { value: "1", label: "shared API behind them" },
     { value: "7", label: "ERP modules I work across" },
   ],
